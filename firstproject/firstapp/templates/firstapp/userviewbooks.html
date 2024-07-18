@@ -1,0 +1,44 @@
+<!--userviewbooks.html-->
+{% extends 'firstapp/usermenu.html' %}
+{% block content %}
+
+
+    <br/>
+
+    <div style=" margin:10px; padding:20px;margin-left:8px;">
+
+        {% if books_obj %}
+                <table style="margin-left:247px;">
+<tr><th> <p class="p-3 mb-2 bg-primary text-white" style="width:423px;">Available Books in {{genrename}}</p>
+</th></tr>
+                </table>
+                        <table style="margin-left:247px;">
+
+                    <tr>
+
+                        <th style="width:150px;padding:18px;">Add</th>
+                        <th style="width:100px;">Book</th>
+                        <th style="width:200px;padding:8px;">Title</th>
+                        <th style="width:200px;padding:8px;">Author</th>
+                        <th style="width:400px; padding: 17px 185px; margin: 19px;">Book Desc</th>
+                        <th style="width:100px;padding:8px;">Bookcode</th>
+                        <th style="width:100px;padding:8px;">uploaded on</th>
+
+                    </tr>
+                     {% for item in books_obj %}
+                        <tr>
+                            <td style="padding:9px;"><a href="/firstapp/download/{{item.bookcode}}/{{item.title}}/" style="width:22px;">Download</a></td>
+                            <td style="padding:9px;"><img src="/images/{{item.imagefilename}}" height="300" width="200"/></td>
+                             <td style="padding:9px;">{{item.title}} </td>
+                             <td style="padding:9px;">{{item.author}}</td>
+                             <td style="padding:9px;">{{item.bookdesc}}</td>
+                             <td style="padding:9px;">{{item.bookcode}}</td>
+                             <td style="padding:9px;">{{item.uploadeddate}}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% else %}
+                    <p style="margin-left: 595px; margin-top:187px;">No books found in this genre</p>
+                {% endif %}
+            </div>
+        {% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'firstapp/adminmenu.html' %}
+    <meta charset="UTF-8">
+    <title>View Books Admin</title>
+</head>
+{% block content %}
+<body>
+<!--<h3 style="margin-left:283px;">View Books</h3>-->
+{% if books_obj %}
+<table  style="margin-left:263px;">
+    <tr style="text-align: center; ">
+        <th >Add Chapter</th>
+        <th >View Chapter</th>
+        <th style="width:100px">Uploaded On</th>
+        <th style="width:100px">Title</th>
+        <th style="width:100px">Author</th>
+        <th style="width:100px">Book code</th>
+        <th>Book Desc</th>
+         <th style="width:200px">Book</th>
+
+    </tr>
+    {% for item in books_obj %}
+    <tr style="margin:33px; padding: 22px; border: 2px solid grey;">
+
+        <td><a style="background-color: red;color:white;padding:4px 12px;border-radius:13px;" href="/firstapp/addchapters/{{item.bookcode}}/{{item.title}}">{{item.bookcode}}</a> </td>
+        <td><a style="background-color: red;color:white;padding:4px 12px;border-radius:13px;" href="/firstapp/admingetchapters/{{item.bookcode}}/{{item.title}}">View</a> </td>
+    <td>{{item.uploadeddate}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.author}}</td>
+    <td>{{item.bookcode}}</td>
+    <td>{{item.bookdesc}}</td>
+        <td><img src="/images/{{item.imagefilename}}" height="290" width="200"/> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+  <p style=" font-size: 22px;margin-left:588px;margin-top:122px;">no books found in this genre</p>
+{% endif %}
+{% endblock %}
+</body>
+</html>

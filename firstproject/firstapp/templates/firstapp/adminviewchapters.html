@@ -1,0 +1,27 @@
+{% extends 'firstapp/adminmenu.html' %}
+{% block content %}
+    <div style="margin:142px; padding: 1px;">
+<!--        <h3 style="text-align: center;"><p class="p-3 mb-2 bg-primary text-white">All Chapters</p></h3>-->
+    </div>
+    <h4>Book:{{title}}</h4>
+    <div style=" margin-top:50px;margin-left:22px; padding:2px;height: 114px;">
+        {% if chapters_obj %}
+                <table style="padding:12px;">
+                    <tr style="text-align:center;padding:12px;">
+                        <th style="padding:12px;">Chapter Number</th>
+                        <th style="padding:12px;">PDF file</th>
+                        <th style="padding:12px;">Play Chapters</th>
+                    </tr>
+                     {% for item in chapters_obj %}
+                        <tr>
+                            <td style="padding:12px;">{{item.chapterno}}</td>
+                            <td style="padding:12px;"> {{item.chapterfilename}}</td>
+                            <td style="padding:12px;"><a href="/firstapp/playaudio/{{item.chapteraudiofilename}}/" style="border: 2px solid red;padding:2px 8px; border-radius:7px;">Play</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% else %}
+                    No chapters found for this book
+                {% endif %}
+            </div>
+        {% endblock %}

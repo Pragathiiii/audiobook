@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');-->
+    <meta charset="UTF-8">
+    <title>Admin login form</title>
+    <style>
+     *{
+    font-family: 'poppins' ,sans-serif;
+}
+body{
+    background:black;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+.container{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 15px;
+
+}
+span{
+    color: red;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+header{
+    color: #e60000;
+    font-weight:600;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    text-shadow:1px 1px #990000;
+}
+.input-field .input{
+    height: 45px;
+    width: 87%;
+    border: none;
+    border-radius: 30px;
+    color: grey;
+    font-weight:800px;
+    letter-spacing:2px;
+    font-size: 15px;
+    padding: 0 0 0 45px;
+    background: rgba(255,255,255,0.2);
+    outline: none;
+}
+
+i{
+    position: relative;
+    top: -33px;
+    left: 17px;
+    color: #e60000;
+}
+::-webkit-input-placeholder{
+    color: #fff;
+    font-weight:200;
+    letter-spacing:1px;
+    padding-left:81px;
+}
+.submit{
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    height: 45px;
+    outline: none;
+    width: 100%;
+    color: #fff;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: .3s ;
+}
+.submit:hover{
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+    background:red;
+    color:#fff;
+}
+.two-col{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #fff;
+    font-size: small;
+    margin-top: 10px;
+}
+label a{
+    text-decoration: none;
+    color: grey;
+    font-size:14px;
+    margin-left:109px;
+    letter-spacing:2px;
+}
+a:hover{
+color:red;
+}
+.input-field:hover{border:1px solid grey;
+border-radius:30px;}
+        </style>
+</head>
+<body>
+<form method="POST" action="/firstapp/adminlogin/">
+    <div class="box">
+    <div class="container">
+        <div class="top">
+            <span>  Welcome Admin  </span>
+            <header>Login Here</header>
+        </div>
+        {% csrf_token %}
+<!--    <h2 style="padding-bottom:19px;">Admin Login</h2>-->
+
+           <div class="input-field" style="margin:11px">
+
+
+                <input type="email" name="emailid" id="emailid" class="input" placeholder="Email-ID">
+                <i class='bx bx-user' ></i>
+           </div>
+
+            <div class="input-field" style="margin:11px">
+
+                <input type="password" name="password" id="password" class="input" placeholder="Password">
+              <i class='bx bx-lock-alt'></i>
+            </div>
+
+            <div class="input-field" style="margin:11px"> <input type="submit" value="LOGIN" class="submit" id="submit" style="font-weight:500;letter-spacing:1px;">
+
+            </div>
+        <div class="two-col">
+            <div class="two">
+                <label><a href="/firstapp/forgotpasswordform/">Forgot password?</a></label>
+                <span></span>
+
+                <label style="margin-left:-13px; font-weight: 800;"><a href="/firstapp/index/" style="border: 2px solid grey; padding: 5px; border-radius: 9px;">GO BACK HOME </a></label>
+            </div>
+        </div>
+    </div>
+    </div>
+</form>
+</body>
+</html>

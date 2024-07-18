@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User View Downloads</title>
+</head>
+<body>
+{% extends 'firstapp/usermenu.html' %}
+{% block content %}
+<!--    <h2 style="margin-left:323px;"> My Downloads</h2>-->
+
+<table style="margin-left:263px; text-align:center;padding: 9px;">
+    <tr><th><h2>My Downloads</h2></th></tr>
+
+ <tr style="text-align:center; margin:5px;">
+
+                        <th style="padding:9px;margin:6px;">Book Added On</th>
+                        <th style="padding:9px;margin:6px;">Book Code(Click to add feedback)</th>
+                        <th style="padding:9px;margin:6px;">Book Name</th>
+                    </tr>
+ {% for item in playlist_obj %}
+ <tr style="margin-top:8px;">
+                            <td style="margin:8px;">{{item.addedon}}</td>
+     <td style="margin=5px;"><a style="color:white;font-weight:800;background-color:red;padding:3px 14px; border-radius:9px;" href="/firstapp/addfeedback/{{item.bookcode}}/">{{item.bookcode}}</a></td>
+                            <td style="margin=5px;">{{item.bookcode.title}}</td>
+ </tr>
+{% endfor %}
+    </table>
+{% endblock %}
+</body>
+</html>

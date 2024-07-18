@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'firstapp/adminmenu.html' %}
+    <meta charset="UTF-8">
+    <title>Admin App Users View</title>
+</head>
+{% block content %}
+<body style="color:white;">
+<h2 style="margin-left:258px;">App Users List</h2>
+
+{% if appusers %}
+<div style="display:flex;flex-wrap:wrap ;margin-top:82px; margin-left:-134px;">
+
+    <table border="0" style="padding:3px;">
+
+        <thead ><tr><td style="padding:13px;margin:5px;">USERCODE</td><td>USERNAME</td><td>USER EMAIL ID</td><td>PHONE</td><td>REG DATE</td></tr></thead>
+    {% for item in appusers %}
+        <div style="padding:3px;">
+            <tr style="padding:13px;margin:5px;"><td style="padding:13px;margin:5px;">{{item.usercode}}</td>&nbsp;
+            <td style="padding:13px;margin:5px;">{{item.username}}</td>
+            <td style="padding:13px;margin:5px;">{{item.emailid}}</td>
+            <td style="padding:13px;margin:5px;">{{item.phone}}</td>
+            <td style="padding:13px;margin:5px;">{{item.regdate}}</td>
+            </tr>
+        </div>
+    {% endfor %}
+          </table>
+</div>
+{% else %}
+    <h4>No App users available.</h4>
+{% endif %}
+{% endblock %}
+</body>
+</html>

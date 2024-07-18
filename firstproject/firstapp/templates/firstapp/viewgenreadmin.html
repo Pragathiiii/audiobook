@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% extends 'firstapp/adminmenu.html' %}
+
+    <title>Admin Genre View</title>
+</head>
+{% block content %}
+
+<body style=" width:1190px;" >
+<div><h3 style="margin-left:282px;margin-top:12px;" >Genres: &nbsp; </h3></div>
+{% if genre %}
+
+<div style="display:flex;flex-wrap:wrap;">
+    {% for item in genre %}
+
+        <div style="width:20%;margin-top:8px;margin-left:194px;margin-right:-55px;display:inline-block;">
+            <a style="color:red;padding:5px;" href="/firstapp/getbooks/{{item.genrename}}/"> <h5 style="text-align:center;border-radius:7px;background-color:red;margin:3px;padding:5px; color:white;">  &nbsp;&nbsp;{{item.genrename}}</h5>  </a>
+        </div>
+
+            {% endfor %}<p></p>
+
+</div>
+
+{% else %}
+    <h4>No Books available in this genre.</h4>
+{% endif %}
+
+{% endblock %}
+
+</body>
+</html>

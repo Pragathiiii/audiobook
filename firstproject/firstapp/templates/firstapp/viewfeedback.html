@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> View Feedbacks</title>
+</head>
+<body style="margin-left:283px;">
+{% extends 'firstapp/adminmenu.html' %}
+{% block content %}
+
+<table >
+    <tr><th><h2>Feedbacks</h2></th></tr>
+ <tr style="text-align:ce; margin:8px; padding: 7px;">
+
+                        <th style="margin:9px;padding:7px;">User Code</th>
+                        <th style="margin:9px;padding:7px;">User Name</th>
+                        <th style="margin:9px;padding:7px;">Book Title</th>
+                        <th style="margin:9px;padding:7px;">Book Code</th>
+                        <th style="margin:9px;padding:7px;">Feedback</th>
+                    </tr>
+ {% for item in fb_obj %}
+ <tr style="margin:9px;padding:7px;">
+                            <td style="margin:9px;padding:7px;">{{item.usercode}}</td>
+                            <td style="margin:9px;padding:7px;">{{item.usercode.username}}</td>
+                            <td style="margin:9px;padding:7px;">{{item.bookcode.title}}</td>
+                            <td style="margin:9px;padding:7px;">{{item.bookcode}}</td>
+                            <td style="margin:9px;padding:7px;">{{item.feedback}}</td>
+ </tr>
+{% endfor %}
+    </table>
+        {% endblock %}
+</body>
+</html>

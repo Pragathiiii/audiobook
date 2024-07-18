@@ -1,0 +1,30 @@
+{% extends 'firstapp/usermenu.html' %}
+{% block content %}
+
+    <div style="margin:-74px; width: 50%; padding: 10px;">
+    <h3 style="text-align: center;">
+<!--       <p class="p-3 mb-2 bg-primary text-white">Genre</p>-->
+    </h3>
+</div>
+<!--    <br/><h5>Hi ! {{request.session.emailid}}</h5>-->
+    <div style="border-style: none;">
+
+        <br/>
+
+        {% if genre %}
+               <p class="p-3 mb-2 bg-primary text-white" style="font-weight:800;">GENRES</p>
+
+<!--    <br/><h5>Hello ! {{request.session.emailid}}</h5>-->
+
+            <div style="display: flex; flex-wrap: wrap;  ">
+                {% for item in genre %}
+                    <div style="width: 20%; border-radius:19px; padding: 10px;margin:14px;background-color:red;color:white;">
+                        <h4 style="color:white; text-align:center;"><a href="/firstapp/userviewbooks/{{item.genrename}}/" style="color:white;text-align:center;">{{item.genrename}}</a></h4>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h4>No books available in this genre.</h4>
+        {% endif %}
+    </div>
+{% endblock %}

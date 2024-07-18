@@ -1,0 +1,26 @@
+{% extends 'firstapp/adminmenu.html' %}
+{% block content %}
+    <div style="margin:auto; width: 50%; padding: 10px; text-align: center;">
+<!--    <h3><p class="p-3 mb-2 bg-primary text-white">Add chapters</p></h3>-->
+</div>
+
+<br/>
+    <div  style="margin:122px;
+        width: 50%;
+        padding: 10px;
+        text-align: center;">
+        <form method="post" enctype="multipart/form-data" style="display: inline-block;">
+            <h2> Add Chapters</h2>
+            {% csrf_token %}
+            <table border="0" style="padding: 9px;margin: 0px;">
+                {% for field in form %}
+                    <tr style="padding: 5px;margin: 17px;">
+                        <td style="padding: 9px;margin: 7px;">{{ field.label_tag }}</td>
+                        <td style="padding: 3px 29px;margin: 7px;">{{ field }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <button style="padding: 4px 19px;margin-left:-72px;margin-top:23px;background-color: red;color:white;font-weight:700;border-radius:7px;" type="submit">Save</button>
+        </form>
+    </div>
+{% endblock %}

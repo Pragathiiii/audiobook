@@ -1,0 +1,18 @@
+{% extends 'firstapp/usermenu.html' %}
+{% block content %}
+<div>
+<form method="post"  style="display:inline-block; margin-left:558px;margin-top:18px;">
+   {% csrf_token %}
+    <h2 align="center">Share your Feedback</h2>
+    <table border="1" style="border-radius: 8px;">
+        {% for field in form %}
+            <tr style="padding:9px;margin:9px;">
+                <td style="padding:9px;margin:9px;" > {{field.label_tag}}</td>
+                <td style="padding:9px;margin:9px;">{{field}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <button  style="padding: 6px 33px; margin: 12px 0px ; background-color:red;color:white;font-weight:bold;" type="submit">Send</button>
+</form>
+    </div>
+{% endblock %}
